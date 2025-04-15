@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Excel Files</title>
+</head>
+<body>
+    <h2>Upload Excel Files</h2>
+    <form action="/upload/" method="post" enctype="multipart/form-data">
+        <label for="file_source">Source Excel File:</label>
+        <input type="file" name="file_source" required><br><br>
+
+        <label for="file_target">Target Excel File:</label>
+        <input type="file" name="file_target" required><br><br>
+
+        <label for="sheet_name">Sheet Name to Modify:</label>
+        <input type="text" name="sheet_name" placeholder="e.g. XX" required><br><br>
+
+        <input type="submit" value="Upload and Modify">
+    </form>
+</body>
+</html>
