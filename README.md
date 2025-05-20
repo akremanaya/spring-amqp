@@ -157,3 +157,44 @@ Résultat JSON
 # License
 
 Spring AMQP is released under the terms of the Apache Software License Version 2.0 (see license.txt).
+
+
+
+
+
+import json
+
+request = "SELECT * FROM servicesnow.request LIMIT 10"
+data = runquery(request, dev)
+
+output = []
+
+# Cas 1 : data est une liste de dictionnaires
+if isinstance(data, list) and isinstance(data[0], dict):
+    for row in data:
+        record = [f"{k}: {v}" for k, v in row.items()]
+        output.append(record)
+
+# Cas 2 : data est une liste de tuples (mais on ne connaît pas les noms de colonnes)
+elif isinstance(data, list) and isinstance(data[0], tuple):
+    # Essai de récupération des colonnes via une nouvelle requête
+    try:
+        cursor = dev.cursor()
+        cursor.execute(request)
+        columns = [desc[0] for desc in cursor.description]
+        for row in data:
+            record = [f"{col}: {val}" for col, val in zip(columns, row)]
+            output.append(record)
+    except Exception as e:
+        print("Impossible d'obtenir les colonnes :", e)
+
+else:
+    print("Format de données inconnu. data =", data)
+
+# Export vers un fichier JSON
+with open("export.json", "w", encoding="utf-8") as f:
+    json.dump(output, f, indent=2, ensure_ascii=False)
+
+print("✅ Export terminé dans export.json")
+
+
