@@ -113,7 +113,44 @@ None of these is essential for a pull request, but they will all help.  They can
 * Make sure all new .java files to have a simple Javadoc class comment with at least an @author tag identifying you, and preferably at least a paragraph on what the class is for.
 * Add the ASF license header comment to all new .java files (copy from existing files in the project)
 * Add yourself as an @author to the .java files that you modify substantially (more than cosmetic changes).
-* Add some Javadocs and, if you change the namespace, some XSD doc elements.
+* Add some Javadocs and, if you change the namespace, some XSD doc
+* 
+
+
+elements.
+
+
+L'erreur "Duct object has no attribute cursor" signifie que dev n’est pas une vraie connexion SQL (comme un objet psycopg2, sqlite3, etc.), mais probablement un wrapper ou un objet personnalisé utilisé avec runquery.
+
+Solution alternative sans .cursor() :
+
+Si runquery(request, dev) retourne une liste de dictionnaires (comme souvent avec des wrappers d’API ou des ORMs), alors voici une version qui fonctionne sans utiliser cursor :
+
+# Exemple avec runquery qui retourne une liste de dictionnaires
+request = "SELECT * FROM servicesnow.request LIMIT 10"
+data = runquery(request, dev)
+
+# Vérifie si c’est une liste de dictionnaires
+if isinstance(data, list) and isinstance(data[0], dict):
+    output = []
+    for row in data:
+        record = [f"{key}: {value}" for key, value in row.items()]
+        output.append(record)
+
+    # Export au format JSON
+    import json
+    with open("export.json", "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+
+    print("Export JSON terminé.")
+else:
+    print("Données inattendues : vérifiez le format retourné par runquery.")
+
+Résultat JSON 
+
+
+
+
 * A few unit tests would help a lot as well - someone has to do it.
 * If no-one else is using your branch, please rebase it against the current master (or other target branch in the main project).
 
