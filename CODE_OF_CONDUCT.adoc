@@ -1,3 +1,158 @@
+
+Here’s a step-by-step guide to design the SharePoint homepage layout similar to the image you confirmed, with:
+
+A hero banner at the top
+
+A 3-column section with: Quick Links, News, and 6 Rectangles (2 rows × 3 items)
+
+
+
+---
+
+Step 1 – Go to Your SharePoint Page
+
+1. Go to your site (Home or target landing page).
+
+
+2. Click the gear icon → Edit page.
+
+
+
+
+---
+
+Step 2 – Add the Hero Section
+
+1. Click + Add a new section → Choose One column.
+
+
+2. In this section, click + and choose Hero Web Part.
+
+
+3. Configure:
+
+Layout: "One tile" or "Two tiles"
+
+Add Welcome Text, Image, and Buttons like “Get Started”, “Learn More”.
+
+
+
+
+
+---
+
+Step 3 – Add a 3-Column Section
+
+1. Click + Add a new section again → Choose Three columns.
+
+
+2. Now you’ll place content inside each column:
+
+
+
+
+---
+
+Step 4 – Column 1: Quick Links
+
+1. Click + in the left column → choose Quick Links web part.
+
+
+2. In layout settings:
+
+Choose Grid view
+
+Add 4 to 6 links (e.g., to tools, pages, or documents)
+
+Optionally add icons or thumbnails for style
+
+
+
+
+
+---
+
+Step 5 – Column 2: News
+
+1. Click + in the middle column → choose News web part.
+
+
+2. In layout settings:
+
+Choose Tiles or Cards
+
+Limit it to 1 or 2 news articles for simplicity
+
+Use attractive thumbnails
+
+
+
+
+
+---
+
+Step 6 – Column 3: 6 Rectangles (3 per row)
+
+This mimics a Pinterest-style layout.
+
+Option 1: Quick Links Grid
+
+1. Click + in the right column → choose Quick Links.
+
+
+2. Set layout to Grid
+
+
+3. Add 6 links or images
+
+
+4. Result: 2 rows of 3 rectangles (automatically wrapped)
+
+
+
+Option 2: Manual Grid with Images or Buttons
+
+If you want full control:
+
+1. Add 3 Image or Button web parts in a row
+
+
+2. Add a second row below with 3 more
+
+
+3. Use square/rectangular thumbnails (e.g., 300×200 px)
+
+
+4. Ensure consistent size for alignment
+
+
+
+
+---
+
+Step 7 – Final Touches
+
+Click Republish to save the page
+
+Go to Settings > Change the Look:
+
+Choose a clean theme
+
+Set compact or minimal header
+
+
+Optionally set a custom site logo
+
+
+
+---
+
+
+
+
+
+
+
 = Contributor Code of Conduct
 
 As contributors and maintainers of this project, and in the interest of fostering an open
